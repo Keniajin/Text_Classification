@@ -376,9 +376,3 @@ for level in predict:
    
     df_test[col28]=df_test[col23].apply(lambda x:Counter([i.lower() for i in x]).most_common()[2][0] if len(set([i.lower() for i in x]))>2 else '')
     df_test[col29]=df_test[col23].apply(lambda x:(Counter([i.lower() for i in x]).most_common()[2][1]/len(x))*100 if len(set([i.lower() for i in x]))>2 else '')
-
-#Final Output
-
-df_test.loc[(df_test['manufacturer']=='') & (df_test['brand']=='') &(df_test['sub_brand']==''),['text','Final_list_GLOBAL_VARIANT','Recommendation_1_GLOBAL_VARIANT','Accuracy_1_GLOBAL_VARIANT','Recommendation_2_GLOBAL_VARIANT','Accuracy_2_GLOBAL_VARIANT','Recommendation_3_GLOBAL_VARIANT','Accuracy_3_GLOBAL_VARIANT']  ]
-
-df_test.to_excel(path+'/'+'Combined_Output_v6.xlsx',index=False)
